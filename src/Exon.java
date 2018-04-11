@@ -7,4 +7,8 @@ public class Exon {
 	{
 		this.lIndex = l;
 	}
+	public void weighExon()
+	{
+		
+	}
 }
