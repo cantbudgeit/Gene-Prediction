@@ -9,13 +9,24 @@ public class Main {
 	public static void main(String[] args)
 	{
 		File file = new File("gene.txt");
-		
-		String gene = "";
+		int index = 0;		
+		char char1 = 'z';
+		char char2 = 'z';
+		char char3 = 'z';
+				
 		try {
 			Scanner scan = new Scanner(file);
 			while(scan.hasNextLine())
 			{
-				gene = scan.next();
+				char3 = char2;
+				char2 = char1;
+				char1 = scan.next().charAt(index);
+				index++;
+				String temp = ""+char3+char2+char1;
+				if(temp.equals("ATG"))
+				{
+					ORF orf = new ORF(index);
+				}
 			}
 			scan.close();
 		}
