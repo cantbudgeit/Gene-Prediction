@@ -2,6 +2,8 @@ import java.io.File;
 import java.util.*;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //this will be the main class of the program
 public class Main {
@@ -18,14 +20,25 @@ public class Main {
 		print();
 		
 	}
-	public static int[] matchPattern()
-	{
-		Pattern
-		return
-	}
+	
 	public static void findAllORFs(ArrayList<ORF> ORFlist, String DNA)
 	{
 		//find start and stop codons in DNA and record those positions in ORF objects and add to list
+		String startCodon = "atg";
+		Pattern startCodonPattern = Pattern.compile(startCodon);
+		String endCodons = "taa|tag|tga";
+		Pattern endCodonsPattern = Pattern.compile(endCodons);
+		
+		Matcher startMatcher = startCodonPattern.matcher(DNA);
+		Matcher endMatcher = endCodonsPattern.matcher(DNA);
+		
+		while (startMatcher.find())
+		{
+			int startIndex = startMatcher.start();
+			ORF newORF = new ORF(startIndex);
+			
+			
+		}
 	}
 	public static void findAllExons(ArrayList<ORF> ORFlist)
 	{
@@ -36,6 +49,10 @@ public class Main {
 	public static void findBestExonChains(ArrayList<ORF> ORFlist)
 	{
 		//find the best weighted non-overlapping exon chains
+	}
+	public static void print()
+	{
+		
 	}
 
 }
