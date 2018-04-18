@@ -1,16 +1,13 @@
-package exonChaining;
-
-
 public class Exon {
 	public int lIndex;
 	public int rIndex;
 	public int weight;
-	public Exon(int l)
+	public String exonString;
+	public Exon(int l, int r, String dna)
 	{
 		this.lIndex = l;
-	}
-	public void weighExon()
-	{
-		
+		this.rIndex = r;
+		this.exonString = dna.substring(l, r);
+		this.weight = (int) exonString.chars().filter(ch -> ch =='C').count();
 	}
 }
